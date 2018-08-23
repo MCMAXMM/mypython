@@ -1,5 +1,5 @@
 # 
-this repository it to practice my python skill
+this repository is to practice my python skill
 
 
 
