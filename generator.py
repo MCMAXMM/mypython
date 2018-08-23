@@ -29,3 +29,7 @@ def gen2():
   print(res2)
 g=gen2()
 print(g.send(None))#send()会给上次挂起的yield赋值，但是第一次启动时没有yield所以需要传一个None值
+#利用close函数可以关闭生成器
+#生成器只能迭代一次
+#如：
+g.close()
