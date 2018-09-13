@@ -19,3 +19,5 @@ def calc(args):
         return args.x/args.y
 if __name__ == '__main__':
     main()
+#在命令行输入 python file_path --x=5 --y=3 --operation="add"  
+#也可以输入 -h查询帮助文档
