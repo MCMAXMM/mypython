@@ -34,4 +34,9 @@ os.listdir("./")#获取目录内容列表  ./指的是当前Python目录，列�
 #文件复制，注意前后编码一致，写入时最好是追加模式a
 #按照文件后缀名，划分到不同的文件夹
 import shutil
-shutil.move()#shutil是一个高级的文件操作包     
+shutil.move()#shutil是一个高级的文件操作包 
+#os.path.dirname可以把一个path中最后一个名字去掉
+print(os.path.dirname("E:/Read_File/read_yaml.py"))
+#结果：
+E:/Read_File
+
