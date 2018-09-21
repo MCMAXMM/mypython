@@ -12,3 +12,7 @@
 #encode的作用是将unicode编码转换成其他编码的字符串，如str2.encode('gb2312')，表示将unicode编码的字符串str2转换成gb2312编码。
 #有时python3会报错：AttributeError: 'str' object has no attribute 'decode'
 #因为python3里str默认为 unicode 了吧。只能编码 encode 不能解码 decode。
+#1.为了处理英文字符，产生了ASCII码。 
+#2.为了处理中文字符，产生了GB2312。 
+#3.为了处理各国字符，产生了Unicode。 
+#4.为了提高Unicode存储和传输性能，产生了UTF-8，它是Unicode的一种实现形式。**
