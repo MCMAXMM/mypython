@@ -1,0 +1,78 @@
+import threading
+import time
+#1.
+# def thread_job():
+#     print("t1 start")
+#     for i in range(10):
+#         time.sleep(0.1)
+#     print("t1 finish")
+# def t2_job():
+#     print("t2 start")
+#     print("t2 finish")
+# def main():
+#     added_thread=threading.Thread(target=thread_job,name="t1")
+#     thread2=threading.Thread(target=t2_job,name="t2")
+#     added_thread.start()
+#     thread2.start()
+#     added_thread.join()#join的作用是等线程执行完，后面的程序才能执行
+#     thread2.join()
+#     print("all done")
+    # added_thread.join()
+    # print(threading.enumerate())#枚举线程的数量
+    # print(threading.active_count())#活跃的线程
+    # print(threading.current_thread())#当前所处的线程
+#     #由于多线程没法返还值，所以需要queue来接收返回值
+
+2#带有返回值的线程，使用queue
+# import threading
+# import time
+# from queue import Queue
+# def job(l,q):
+#     for i in range(len(l)):
+#         l[i]=l[i]**2
+#     q.put(l)
+#     # return l
+# def multithreading():
+#     q=Queue()
+#     threads=[]
+#     data=[[1,2,3],[3,4,5],[4,4,4],[5,5,5]]
+#     for i in range(4):
+#         t=threading.Thread(target=job,args=(data[i],q))
+#         t.start()
+#         threads.append(t)
+#     for thread in threads:
+#         thread.join()
+#     results=[]
+#     for _ in range(4):
+#         results.append(q.get())
+#     print(results)
+# multithreading()
+
+
+#3.使用lock使得程序能够同步运行
+#lock
+import threading
+def job1():
+    global A,lock
+    lock.acquire()
+    for i in range(10):
+        A+=1
+        print("job1",A)
+    lock.release()
+def job2():
+    global A,lock
+    lock.acquire()
+    for i in range(10):
+        A+=10
+        print("job2",A)
+    lock.release()
+if __name__=="__main__":
+    lock=threading.Lock()
+
+    A=0
+    t1=threading.Thread(target=job1)
+    t2=threading.Thread(target=job2)
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
